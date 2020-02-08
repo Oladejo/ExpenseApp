@@ -32,15 +32,15 @@ namespace InitsProject.Controllers
                 {
                     return Ok(new ResponseMessage
                     {
-                        status = "success",
-                        data = new { id = expenseDTO.Id }
+                        Status = "success",
+                        Data = new { id = expenseDTO.Id }
                     });
                 }
                 else
                 {
                     return Ok(new ResponseMessage
                     {
-                        status = "failed"
+                        Status = "failed"
                     });
                 }
             }
@@ -49,7 +49,7 @@ namespace InitsProject.Controllers
                 var errors = ModelState.Values.Select(cx => cx.Errors?.FirstOrDefault()?.ErrorMessage);
                 return Ok(new ResponseMessage
                 {
-                    status = "failed",
+                    Status = "failed",
                     ErrorMessages = errors.ToList()
                 });
             }
@@ -69,7 +69,7 @@ namespace InitsProject.Controllers
             {
                 return Ok(new ResponseMessage
                 {
-                    status = "failed",
+                    Status = "failed",
                     ErrorMessages = new List<string> { ex.Message }
                 });
             }

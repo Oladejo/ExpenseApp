@@ -8,8 +8,8 @@ namespace InitsProject.DTO
         {
             ErrorMessages = new List<string>();
         }
-        public string status { get; set; }
+        public string Status { get; set; }
         public List<string> ErrorMessages { get; set; }
-        public object data { get; set; }
+        public object Data { get; set; }
     }
 }
