@@ -32,8 +32,7 @@ namespace InitsProject.Controllers
                 {
                     return Ok(new ResponseMessage
                     {
-                        Status = "success",
-                        Data = new { id = expenseDTO.Id }
+                        Status = "success"
                     });
                 }
                 else

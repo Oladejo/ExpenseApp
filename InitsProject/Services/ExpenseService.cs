@@ -23,19 +23,24 @@ namespace InitsProject.Services
         {
             try
             {
-                var data = new Expense
+                if(expense.Value > 0)
                 {
-                    Value = expense.Value,
-                    Reason = expense.Reason,
-                    DateOfExpense = expense.Date,
-                    DateCreated = DateTime.Now
-                };
+                    var data = new Expense
+                    {
+                        Value = expense.Value,
+                        Reason = expense.Reason,
+                        DateOfExpense = expense.Date,
+                        DateCreated = DateTime.Now
+                    };
 
-                data.VAT = ExtractVATFromValue(expense.Value);
+                    data.VAT = ExtractVATFromValue(expense.Value);
 
-                _context.Expenses.Add(data);
-                await _context.SaveChangesAsync();
-                return true;
+                    _context.Expenses.Add(data);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+
             }
             catch (Exception)
             {
